@@ -1,0 +1,15 @@
+<h2>Selected User Details</h2>
+<div *ngIf="user">
+	<h2>{{user.name | uppercase}} Details</h2>
+	<div><span>id: </span>{{user.name}}</div>
+	<div>
+    	<label>name:
+      		<input [(ngModel)]="user.name" placeholder="name">
+    	</label>
+	</div>
+	<p>phone: {{ user.phone }}</p>
+	<p>email: {{ user.email }}</p>
+</div>
+
+<button (click)="goBack()">go back</button>
+<button (click)="save()">save</button>

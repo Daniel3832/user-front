@@ -1,0 +1,18 @@
+<h2>My Users</h2>
+<ul>
+  <li *ngFor="let user of users" 
+  (click)="onSelect(user)">
+		{{ user.name }}
+		{{ user.phone }}
+		{{ user.email }}
+  </li>
+</ul>
+
+<div>Create a new user: <br>
+	<label>name: <input #name /></label><br>
+	<label>phone: <input #phone /></label><br>
+	<label>email: <input #email /></label><br>
+	<button (click)="createUser(name.value, phone.value, email.value)">Save</button>
+</div>
+
+<app-user-detail [user]="selectedUser"></app-user-detail>
