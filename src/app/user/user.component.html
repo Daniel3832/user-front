@@ -9,10 +9,11 @@
 </ul>
 
 <div>Create a new user: <br>
+	<label>id: <input #id /></label><br>
 	<label>name: <input #name /></label><br>
 	<label>phone: <input #phone /></label><br>
 	<label>email: <input #email /></label><br>
-	<button (click)="createUser(name.value, phone.value, email.value)">Save</button>
+	<button (click)="createUser(id.value, name.value, phone.value, email.value)">Save</button>
 </div>
 
 <app-user-detail [user]="selectedUser"></app-user-detail>

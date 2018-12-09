@@ -23,21 +23,22 @@ export class UserComponent implements OnInit {
 	getUsers(): void { 
 		this.userService.getUsers()
 		.subscribe(users => this.users = users)
+
+		console.log("getuser in usercomponent")
 	}
 
 	onSelect(user): void {
 		this.selectedUser = user
 	}
 
-	createUser(name: string, phone: number, email:string): void {
-		// let new_user = {
-		// 	name: name,
-		// 	phone: phone,
-		// 	email: email
-		// }
-		let new_user = { name, phone, email }
-
-		this.users.push(new_user)
-		console.log(new_user.name + "hello new")
+	createUser(id: number, name: string, phone: number, email:string): void {
+		let new_user = { id, name, phone, email }
+		this.userService.addUser(new_user)
+		.subscribe(
+			(data: User) => console.log(data),
+			(error: any) => console.log(error)
+		)
+		// this.users.push(new_user)
+		// console.log(new_user.name)
 	}
 }
